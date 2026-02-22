@@ -17,7 +17,7 @@ jobs:
           node-version: 18
 
       # Restore cache before installing dependencies
-      - name: 23f2004889@ds.study.iitm.ac.in
+      - name: prime-cache-e8c33c2
         id: prime-cache-e8c33c2
         uses: actions/cache@v4
         with:
