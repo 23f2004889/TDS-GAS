@@ -21,11 +21,11 @@ jobs:
         run: npm install
 
       - name: Prime cache-e8c33c2
-        id: cache-step
+        id: prime-cache-e8c33c2
         uses: actions/cache@v4
         with:
           path: ~/.npm
           key: cache-e8c33c2
 
       - name: Show cache result
-        run: echo "Cache hit? ${{ steps.cache-step.outputs.cache-hit }}"
+        run: echo "Cache hit? ${{ steps.prime-cache-e8c33c2.outputs.cache-hit }}"
