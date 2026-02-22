@@ -1,4 +1,4 @@
-name: prime-cache-e8c33c2
+name: 23f2004889@ds.study.iitm.ac.in
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
           node-version: 18
 
       # Restore cache before installing dependencies
-      - name: prime-cache-e8c33c2
+      - name: 23f2004889@ds.study.iitm.ac.in
         id: prime-cache-e8c33c2
         uses: actions/cache@v4
         with:
