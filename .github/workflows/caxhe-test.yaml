@@ -17,7 +17,7 @@ jobs:
           node-version: 18
 
       # Restore cache before installing dependencies
-      - name: Prime cache-e8c33c2
+      - name: prime-cache-e8c33c2
         id: prime-cache-e8c33c2
         uses: actions/cache@v4
         with:
