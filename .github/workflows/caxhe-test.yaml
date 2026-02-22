@@ -11,22 +11,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      # Use Node.js for this example
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      # Cache dependencies
+      - name: Install dependencies
+        run: npm install
+
       - name: Prime cache-e8c33c2
         id: cache-step
         uses: actions/cache@v4
         with:
           path: ~/.npm
           key: cache-e8c33c2
-        # Echo cache hit/miss
+
       - name: Show cache result
         run: echo "Cache hit? ${{ steps.cache-step.outputs.cache-hit }}"
