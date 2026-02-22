@@ -1,4 +1,3 @@
-# File: .github/workflows/cache-test.yml
 name: prime-cache-e8c33c2
 
 on:
@@ -6,7 +5,7 @@ on:
     branches:
       - main
   pull_request:
- 
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,15 +16,16 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: npm install
-
+      # Restore cache before installing dependencies
       - name: Prime cache-e8c33c2
         id: prime-cache-e8c33c2
         uses: actions/cache@v4
         with:
           path: ~/.npm
           key: cache-e8c33c2
+
+      - name: Install dependencies
+        run: npm install
 
       - name: Show cache result
         run: echo "Cache hit? ${{ steps.prime-cache-e8c33c2.outputs.cache-hit }}"
