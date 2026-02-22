@@ -1,5 +1,5 @@
 # File: .github/workflows/cache-test.yml
-name: CI with Cache
+name: prime-cache-e8c33c2
 
 on:
   push:
