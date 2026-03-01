@@ -1,0 +1,32 @@
+name: Daily DevSync Update
+
+on:
+  schedule:
+    # Runs at 14:30 UTC every day. (Specific hour and minute used)
+    - cron: '30 14 * * *'
+  # Allows you to trigger the workflow manually for immediate testing
+  workflow_dispatch: 
+
+jobs:
+  update-repo:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Grants the action permission to push commits to the repo
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # The step name includes the required email address
+      - name: Update daily tracking log for 23f2004889@ds.study.iitm.ac.in
+        run: |
+          echo "Automated daily sync at $(date)" >> devsync_status.log
+          
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "23f2004889@ds.study.iitm.ac.in"
+          git config --local user.name "DevSync Automation Bot"
+          git add devsync_status.log
+          # Only commit if there are changes to avoid workflow errors
+          git diff-index --quiet HEAD || git commit -m "chore: automated daily activity tracking"
+          git push
