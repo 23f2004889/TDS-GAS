@@ -1,0 +1,29 @@
+name: Automated QA Playwright Scraper
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch: # Allows you to run this manually from the Actions tab
+
+jobs:
+  scrape-and-sum:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: |
+          npm init -y
+          npm install playwright
+          npx playwright install --with-deps chromium
+
+      # REQUIRED STEP: Must contain the specific email in the name
+      - name: Run Playwright Script for 23f2004889@ds.study.iitm.ac.in
+        run: node scrape.js
