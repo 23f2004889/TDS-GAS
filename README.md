@@ -1,4 +1,4 @@
-[![Daily DevSync Update](https://github.com/23f2004889/TDS-GAS/actions/workflows/daily_commit.yml/badge.svg)](https://github.com/23f2004889/TDS-GAS/actions/workflows/daily_commit.yml)
+[![CI Workflow](https://github.com/23f2004889/TDS-GAS/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/23f2004889/TDS-GAS/actions/workflows/ci.yml)
 # q-git-revert-env
 
 A Flask-based REST API service.
